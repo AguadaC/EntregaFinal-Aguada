@@ -3,10 +3,13 @@ import NavBar from './components/NavBar'
 import ItemListContainer from './components/ItemListContainer'
 
 const App = () => {
+
+  const greeting = "Bienvenid@! Completemos tu turno de depilación..."
+
   return (
     <div>
       <NavBar />
-      <ItemListContainer />
+      <ItemListContainer greeting={ greeting }/>
     </div>
   )
 }

@@ -1,12 +1,12 @@
 import React from 'react'
 import { Card, CardBody, Text } from '@chakra-ui/react'
 
-const ItemListContainer = () => {
+const ItemListContainer = ({ greeting }) => {
   return (
     <Card bg="purple.100">
       <CardBody >
         <Text fontWeight="bold" color="blue.500" textAlign="center">
-          BIENVENIDO A MI APP
+          {greeting}
         </Text>
       </CardBody>
     </Card>

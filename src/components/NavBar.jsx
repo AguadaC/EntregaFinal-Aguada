@@ -19,9 +19,9 @@ const NavBar = () => {
       <Menu isLazy>
         <MenuButton as={Button} colorScheme='teal'>Desplegable</MenuButton>
         <MenuList bg="teal">
-          <MenuItem bg="teal" fontWeight="bold">Opcion 1</MenuItem>
-          <MenuItem bg="teal" fontWeight="bold">Opcion 2</MenuItem>
-          <MenuItem bg="teal" fontWeight="bold">Opcion 3</MenuItem>
+          <MenuItem bg="teal" fontWeight="bold">Zonas Disponibles</MenuItem>
+          <MenuItem bg="teal" fontWeight="bold">Zonas Seleccionadas</MenuItem>
+          <MenuItem bg="teal" fontWeight="bold">Combos Válidos</MenuItem>
         </MenuList>
       </Menu>
       <Spacer />
