@@ -1,7 +1,11 @@
 import React from 'react'
 import ItemList from './ItemList';
+import { useParams } from 'react-router-dom';
 
 const ItemListContainer = () => {
+
+  const { id } = useParams()
+  console.log(id)
 
   const [products, setProducts] = React.useState([]);
 
@@ -22,7 +26,7 @@ const ItemListContainer = () => {
             title: "Arroz",
             description: "Arroz blanco, paquete de 1kg",
             price: 400,
-            category: "no perecederos",
+            category: "no_perecederos",
             image: "https://www.lafallera.es/wp-content/uploads/2023/04/Coccio%CC%81n-para-el-arroz-largo-pasos-y-trucos.jpg"
           },
           {
@@ -46,7 +50,7 @@ const ItemListContainer = () => {
             title: "Atún enlatado",
             description: "Lata de atún al natural, 200g",
             price: 3000,
-            category: "no perecederos",
+            category: "no_perecederos",
             image: "https://i.blogs.es/b72848/istock-978062568/1366_2000.jpeg"
           },
         ];
@@ -68,10 +72,11 @@ const ItemListContainer = () => {
       });
   }, []);
   
+  const filtered_prod = products.filter((prod) => prod.category == id)
 
   return (
-      <ItemList products={products} />
-  )
+        <ItemList products={filtered_prod.length ? filtered_prod : products} />
+  );
 }
 
 export default ItemListContainer
