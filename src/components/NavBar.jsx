@@ -25,7 +25,7 @@ const NavBar = () => {
         </MenuList>
       </Menu>
       <Spacer />
-      <CartWidget />
+      <CartWidget itemCount={4}/>
     </Flex>
   )
 }
