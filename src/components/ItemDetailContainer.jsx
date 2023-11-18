@@ -1,15 +1,11 @@
 import React from 'react'
-import ItemList from './ItemList';
+import ItemDetail from './ItemDetail'
 import { useParams } from 'react-router-dom';
 
-const ItemListContainer = () => {
+const ItemDetailContainer = () => {
 
   const { id } = useParams()
-  console.log(id)
-
-  const [prods, setProducts] = React.useState([]);
-
-  const products = [
+  const products_set = [
     {
       id: 1,
       title: "Tomate",
@@ -51,36 +47,13 @@ const ItemListContainer = () => {
       image: "https://i.blogs.es/b72848/istock-978062568/1366_2000.jpeg"
     },
   ];
-    
-  const fetchProducts = new Promise( (resolve, reject) =>{
-    if (products.length > 0) {
-      setTimeout(() => {
-        resolve(products)
-      }, 2000)
-    } else {
-      reject(new Error ("Sin Productos"))
-    }
-  })
 
-  React.useEffect(() => {
-    // Verificar si los datos ya se han cargado
-    if (!prods.length) {
-      // Realizar la llamada a la API
-      fetchProducts
-        .then((products) => {
-          setProducts(products);
-        })
-        .catch((error) => {
-          console.error('Error al obtener la lista de productos:', error);
-        });
-    }
-  }, []);
-
-  const filtered_prod = products.filter((prod) => prod.category == id)
+  const product_detail = products_set.find((prod)=> prod.id == id)
+  console.log(product_detail)
 
   return (
-        <ItemList products={filtered_prod.length ? filtered_prod : products} />
-  );
+      <ItemDetail key={product_detail.id} productDetail={product_detail} />
+  )
 }
 
-export default ItemListContainer
+export default ItemDetailContainer
