@@ -38,7 +38,7 @@ const NavBar = () => {
       </Menu>
       <Spacer />
         <Link to={"/cart"}>
-          <CartWidget itemCount={4}/>
+          <CartWidget />
         </Link>
     </Flex>
   )

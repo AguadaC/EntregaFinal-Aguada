@@ -1,11 +1,16 @@
 import React from 'react';
-import { Box, Heading, Text, Image, Button } from '@chakra-ui/react';
+import { Box, Heading, Text, Image} from '@chakra-ui/react';
 import ItemCount from './ItemCount';
+import { useContext } from 'react';
+import { CartContext } from '../context/ShoppingCartContext';
 
 const ItemDetail = ({ productDetail }) => {
+
+  const {cart, addItem, removeItem, isInCart, getQuantityTotal} = useContext(CartContext);
+
   const handleAddToCart = (quantity) => {
     console.log(`Added ${quantity} ${productDetail.title}(s) to cart`);
-    // Aquí agregare la logica para agregar al carrito
+    addItem(productDetail, quantity)
   };
 
   return (
