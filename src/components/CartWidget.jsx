@@ -10,7 +10,7 @@ const theme = createTheme();
 
 const CartWidget = () => {
 
-  const { cart, addItem, removeItem, isInCart, getQuantityTotal } = useContext(CartContext);
+  const { cart, addItem, removeItem, isInCart, getQuantityTotal, cleanCart } = useContext(CartContext);
 
   const itemNumber = getQuantityTotal()
   console.log(itemNumber)
