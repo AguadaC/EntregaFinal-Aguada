@@ -1,14 +1,20 @@
 import React from 'react';
-import { Box, Heading, Text, Image, Button } from '@chakra-ui/react';
+import { Flex, Box, Heading, Text, Image} from '@chakra-ui/react';
 import ItemCount from './ItemCount';
+import { useContext } from 'react';
+import { CartContext } from '../context/ShoppingCartContext';
 
 const ItemDetail = ({ productDetail }) => {
+
+  const { cart, addItem, removeItem, isInCart, getQuantityTotal, cleanCart } = useContext(CartContext);
+
   const handleAddToCart = (quantity) => {
     console.log(`Added ${quantity} ${productDetail.title}(s) to cart`);
-    // Aquí agregare la logica para agregar al carrito
+    addItem(productDetail, quantity)
   };
 
   return (
+    <Flex flexWrap="wrap" justifyContent="center" alignItems="flex-start">
     <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
       <Image src={productDetail.image} alt={productDetail.title} />
       <Box p="6">
@@ -22,6 +28,8 @@ const ItemDetail = ({ productDetail }) => {
         <ItemCount initial={0} onAdd={handleAddToCart} />
       </Box>
     </Box>
+    </Flex>
+    
   );
 };
 
