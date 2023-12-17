@@ -1,3 +1,11 @@
+# Entrega-Final
+- Para esta entrega se agregó el uso de context para la lógica del carrito.
+- Se agregó el uso de firebase.
+- Se agregó el uso de formulario para finalizar la compra.
+
+![](./extern_resources/final_deliver.gif)
+
+
 # PreEntrega2-Aguada
 - Para esta entrega se agregaron las rutas y los links correspondientes.
 - Hubo una modificación dedependencias para salvar incompatibilidades.
