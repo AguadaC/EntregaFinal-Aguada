@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-import {
-  FormControl,
-  FormLabel,
-  Input,
-  Button
-} from "@chakra-ui/react";
+import { FormControl, FormLabel, Input, Button, Flex, Box, Center } from "@chakra-ui/react";
 import { collection, getFirestore, addDoc } from "firebase/firestore";
 import { useContext } from 'react';
 import { CartContext } from '../context/ShoppingCartContext';
@@ -57,6 +52,7 @@ const ContactForm = () => {
 
   return (
     <>
+    <Flex flexWrap="wrap" justifyContent="center" alignItems="flex-start">
     <form action="" onSubmit={handleSubmit}>
       <FormControl isRequired>
         <FormLabel>Nombre</FormLabel>
@@ -85,9 +81,23 @@ const ContactForm = () => {
           onChange={handleChange}
         />
       </FormControl>
-      <Button type="submit">Confirmar pedido</Button>
+    <Center bg="teal" h="80px" color="white" fontWeight="bold">
+      <Flex direction="column" flexWrap="wrap">
+        <Box mx="auto">
+        {cart.length ? (
+        <Button type="submit">Confirmar pedido</Button>
+        ) : (
+        <>
+          <h2 style={{ justifyContent: "center" }}>Id de la Compra:</h2>
+          <br />
+          <h4 style={{ justifyContent: "center" }}>{id}</h4>
+        </>
+        )}
+        </Box>
+      </Flex>
+    </Center>
     </form>
-    <p>Id de la Compra: {id} </p>
+    </Flex>
     </>
     
   );
